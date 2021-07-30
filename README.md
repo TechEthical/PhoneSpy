@@ -22,7 +22,7 @@ PhoneSpy is a Simple Android Payload Generator Only For Termux Users.
 ```
 apt-get update
 
-git clone https://github.com/TechBite-BD/PhoneSpy.git
+git clone https://github.com/TechEthical/PhoneSpy.git
 
 cd PhoneSpy
 
@@ -39,7 +39,7 @@ pkg update
 
 pkg install git
 
-git clone https://github.com/TechBite-BD/PhoneSpy.git
+git clone https://github.com/TechEthical/PhoneSpy.git
 
 cd PhoneSpy
 
